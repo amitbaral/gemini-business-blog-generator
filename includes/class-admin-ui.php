@@ -265,6 +265,8 @@ class GBBG_Admin_UI {
         check_ajax_referer('gbbg_nonce', 'nonce');
         if (!current_user_can('manage_options')) { wp_send_json_error(array('message' => 'Insufficient permissions.')); }
         $api = new GBBG_Gemini_API();
+        if (!empty($_POST['api_key'])) { $api->set_api_key(sanitize_text_field($_POST['api_key'])); }
+        if (!empty($_POST['model'])) { $api->set_model(sanitize_text_field($_POST['model'])); }
         $result = $api->test_connection();
         if (is_wp_error($result)) { wp_send_json_error(array('message' => $result->get_error_message())); }
         wp_send_json_success(array('message' => 'Connected successfully to Google Gemini API!'));

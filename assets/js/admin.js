@@ -43,7 +43,9 @@
 
         $.post(gbbg_ajax.ajax_url, {
             action: 'gbbg_test_api',
-            nonce: gbbg_ajax.nonce
+            nonce: gbbg_ajax.nonce,
+            api_key: $('#gbbg_gemini_api_key').val(),
+            model: $('#gbbg_gemini_model').val()
         }, function(response) {
             btn.removeClass('loading');
             resultDiv.show();
