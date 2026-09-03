@@ -208,6 +208,7 @@ class GBBG_Admin_UI {
         $enable_toc = get_option('gbbg_enable_toc', '1');
         $enable_faq = get_option('gbbg_enable_faq_schema', '1');
         $primary_cta = get_option('gbbg_primary_cta', '');
+        $focus_kw = isset($data['focus_keyword']) ? esc_attr($data['focus_keyword']) : 'SEO Strategy';
 
         if ($enable_takeaways && !empty($data['key_takeaways'])) {
             $html .= '<div class="gbbg-key-takeaways" style="background:#f0f7ff;border-left:4px solid #0073aa;padding:20px 24px;margin-bottom:28px;border-radius:4px;"><h2 style="margin-top:0;font-size:1.2em;">&#128161; Key Takeaways</h2><ul>';
@@ -224,7 +225,21 @@ class GBBG_Admin_UI {
             $html .= '</ul></div>';
         }
 
-        if (!empty($data['content_html'])) { $html .= wp_kses_post($data['content_html']); }
+        $body_content = !empty($data['content_html']) ? $data['content_html'] : '';
+
+        // Rank Math Check Fix 1: Ensure Rich Media Image with Focus Keyword Alt Text is present
+        if (strpos($body_content, '<img') === false || strpos(strtolower($body_content), strtolower($focus_kw)) === false) {
+            $img_html = '<div class="gbbg-featured-media-wrapper" style="margin:24px 0;"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80" alt="' . $focus_kw . ' - Comprehensive SEO & Client Growth Guide" style="width:100%;max-height:500px;object-fit:cover;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.08);" /><p style="font-size:0.85em;color:#666;text-align:center;margin-top:6px;"><em>Visual representation of ' . esc_html($focus_kw) . ' strategy.</em></p></div>';
+            $body_content = $img_html . $body_content;
+        }
+
+        // Rank Math Check Fix 2: Ensure Outbound Dofollow Link to Authoritative External Resource exists
+        if (!preg_match('/<a\s+[^>]*href=["\']https?:\/\/(?!' . preg_quote(parse_url(get_bloginfo('url'), PHP_URL_HOST), '/') . ')[^"\']+["\']/i', $body_content)) {
+            $outbound_link = '<p style="margin-top:20px;"><em>For additional official industry standards and search benchmarks, refer to the authoritative documentation on <a href="https://developers.google.com/search/docs" target="_blank" rel="noopener">Google Search Central Guidelines</a>.</em></p>';
+            $body_content .= $outbound_link;
+        }
+
+        $html .= wp_kses_post($body_content);
 
         if ($enable_faq && !empty($data['faq_list'])) {
             $html .= '<div class="gbbg-faq-section" style="margin-top:36px;"><h2>&#10067; Frequently Asked Questions</h2>';
@@ -284,7 +299,11 @@ class GBBG_Admin_UI {
         $title = sanitize_text_field($blog_data['title']);
         $content = wp_kses_post($blog_data['full_content'] ?? '');
         $excerpt = sanitize_text_field($blog_data['excerpt'] ?? '');
-        $slug = sanitize_title($blog_data['slug'] ?? $title);
+        
+        // Rank Math Check Fix 3: Ensure URL/slug is short (under 60 characters)
+        $raw_slug = !empty($blog_data['slug']) ? $blog_data['slug'] : $title;
+        $slug = sanitize_title(substr($raw_slug, 0, 55));
+        
         $focus_keyword = sanitize_text_field($blog_data['focus_keyword'] ?? '');
         $meta_desc = sanitize_text_field($blog_data['meta_description'] ?? '');
 
