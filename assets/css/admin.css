@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Gemini Business SEO Blog Generator - Admin Styles
+   WP Pro Blogs - Admin Styles
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -8,12 +8,13 @@
 .gbbg-wrap * { box-sizing: border-box; }
 
 /* Header */
-.gbbg-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 28px 32px; border-radius: 16px; margin-bottom: 28px; position: relative; overflow: hidden; }
-.gbbg-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,115,170,0.3) 0%, transparent 70%); border-radius: 50%; }
+.gbbg-header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%); color: #fff; padding: 28px 32px; border-radius: 16px; margin-bottom: 28px; position: relative; overflow: hidden; }
+.gbbg-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(20,184,166,0.3) 0%, transparent 70%); border-radius: 50%; }
 .gbbg-header-inner { display: flex; align-items: center; gap: 14px; position: relative; z-index: 1; }
-.gbbg-header-icon { font-size: 36px; color: #53d8fb; }
+.gbbg-header-icon { font-size: 36px; color: #2dd4bf; }
 .gbbg-header h1 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.3px; }
-.gbbg-version { background: rgba(83,216,251,0.2); color: #53d8fb; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.gbbg-version { background: rgba(45,212,191,0.2); color: #2dd4bf; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.gbbg-badge-agency { background: linear-gradient(135deg, #6366f1, #4f46e5); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
 
 /* Tabs */
 .gbbg-settings-tabs { display: flex; gap: 4px; margin-bottom: 24px; background: #f0f2f5; padding: 4px; border-radius: 12px; }

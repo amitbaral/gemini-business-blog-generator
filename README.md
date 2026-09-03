@@ -1,34 +1,34 @@
-# Gemini Business SEO Blog Generator
+# WP Pro Blogs - Agency SEO & Client Acquisition Engine
 
-AI-powered WordPress plugin that generates 100/100 SEO-optimized, business-focused blog posts using Google Gemini API.
+AI-powered WordPress plugin that generates 100/100 SEO-optimized, client-converting blog posts using Google Gemini API built specifically for **SEO Agencies & Growth Marketers**.
 
 ## Features
 
-- **Google Gemini AI** — Supports gemini-3.8-flash, gemini-2.5-flash, gemini-1.5-flash
-- **100/100 SEO Score** — Built-in 12-point SEO audit engine
-- **Rank Math & Yoast SEO** — Auto-populates title, description & focus keyword
-- **JSON-LD Schema** — BlogPosting + FAQPage structured data injection
-- **Business-Focused** — Tailored prompts for your business niche, location & brand tone
-- **AI Topic Ideation** — One-click AI-generated topic suggestions
-- **Live Preview** — Real-time content preview with animated SEO score meter
-- **One-Click Publish** — Publish or save as draft directly from the generator
+- **WP Pro Blogs Agency Engine** — Powered by Google Gemini (gemini-3.8-flash, gemini-2.5-flash, gemini-1.5-flash)
+- **Client Lead Generation Focus** — Crafts high-converting B2B content designed to attract and win client accounts
+- **100/100 SEO Audit Engine** — Built-in 12-point real-time SEO scoring
+- **Rank Math & Yoast SEO Integration** — Auto-populates title, description & focus keywords
+- **JSON-LD Structured Data** — BlogPosting + FAQPage schema injection
+- **Agency & Client Profile Customization** — Custom tone, niche, target location, service internal linking & CTAs
+- **AI Topic Ideation** — One-click high-intent client-acquisition topic generator
+- **Live Preview & Publishing** — Real-time post audit with one-click publish to WordPress
 
 ## Installation
 
 1. Download or clone this repository into `wp-content/plugins/`
 2. Activate the plugin in WordPress Admin → Plugins
-3. Navigate to **Gemini Blog AI → Settings** and enter your [Google AI Studio API Key](https://aistudio.google.com/app/apikey)
-4. Go to **Gemini Blog AI → Generate Blog** and create your first post!
+3. Navigate to **WP Pro Blogs → Agency Settings** and enter your [Google AI Studio API Key](https://aistudio.google.com/app/apikey)
+4. Go to **WP Pro Blogs → Generate Blog** and start scaling client acquisition!
 
 ## Settings
 
-All configuration is managed within the plugin Settings page:
+All configuration is managed within the Agency Settings page:
 
 | Tab | Settings |
 |-----|----------|
-| Gemini API | API Key, Model, Temperature, Max Tokens, Top P, Top K |
-| Business Profile | Name, Niche, Location, Tone, Word Count, CTA, Service Links |
-| SEO Integration | Rank Math, Yoast, FAQ Schema, Article Schema, TOC, Key Takeaways |
+| Gemini AI Engine | API Key, Model, Temperature, Max Tokens, Top P, Top K |
+| Agency & Client Profile | Agency Name, Industry Niche, Location, Tone, Word Count, Acquisition CTA, Service Links |
+| SEO Integration & Schema | Rank Math, Yoast, FAQ Schema, Article Schema, TOC, Key Takeaways |
 
 ## Requirements
 

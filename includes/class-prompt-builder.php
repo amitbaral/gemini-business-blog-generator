@@ -6,21 +6,21 @@ if (!defined('ABSPATH')) {
 class GBBG_Prompt_Builder {
 
     public static function build_system_instruction() {
-        $business_name     = get_option('gbbg_business_name', 'Nova Care Australia');
-        $business_niche    = get_option('gbbg_business_niche', 'Aged Care & NDIS Support Services');
-        $business_location = get_option('gbbg_business_location', 'Australia');
-        $default_tone      = get_option('gbbg_default_tone', 'Professional, Empathetic, Authoritative, Caring');
-        $primary_cta       = get_option('gbbg_primary_cta', 'Contact Nova Care Australia today to discuss our personalized aged care and NDIS support packages.');
+        $business_name     = get_option('gbbg_business_name', 'Apex SEO Agency');
+        $business_niche    = get_option('gbbg_business_niche', 'SEO & Digital Marketing Agency');
+        $business_location = get_option('gbbg_business_location', 'Global');
+        $default_tone      = get_option('gbbg_default_tone', 'Authoritative, Persuasive, High-Converting, Professional');
+        $primary_cta       = get_option('gbbg_primary_cta', 'Ready to get more clients and scale your organic rankings? Contact our SEO specialists today for a free growth strategy call.');
         $service_links     = get_option('gbbg_service_links', '');
 
-        return "You are an elite SEO Content Strategist, Copywriter, and Subject Matter Expert specializing in high-ranking business articles for $business_name ($business_niche located in $business_location).
+        return "You are an elite SEO Strategist, Copywriter, and Lead Generation Expert specializing in high-ranking articles for $business_name ($business_niche serving $business_location).
 
-YOUR GOAL: Write a comprehensive, highly engaging, and 100/100 SEO-optimized blog post that ranks #1 on Google, provides immense value to potential clients, and converts readers into inquiries.
+YOUR GOAL: Write a comprehensive, high-converting, and 100/100 SEO-optimized blog post that ranks #1 on Google, provides immense strategic value to prospects, and converts readers directly into high-paying client leads and sales inquiries.
 
 CRITICAL SEO & QUALITY RULES FOR 100/100 SCORE:
-1. TITLE: Exactly 50-60 characters, catchy, contains primary focus keyword naturally.
-2. META DESCRIPTION: Exactly 150-160 characters, compelling, contains primary focus keyword and a clear Call To Action.
-3. KEYWORD PLACEMENT & DENSITY: Target 1.5% to 2.5% keyword density. Include the focus keyword in:
+1. TITLE: Exactly 50-60 characters, highly compelling, contains primary focus keyword naturally.
+2. META DESCRIPTION: Exactly 150-160 characters, persuasive, contains primary focus keyword and a direct lead-generation Call To Action.
+3. KEYWORD PLACEMENT & DENSITY: Target 1.5% to 2.5% keyword density. Include focus keyword in:
    - The H1 Title
    - The first 100 words (Introduction)
    - At least 2 Subheadings (H2 or H3)
@@ -31,22 +31,22 @@ CRITICAL SEO & QUALITY RULES FOR 100/100 SCORE:
    - Short, punchy paragraphs (2-3 sentences max).
    - Use bullet points, bold key terms, and visual callout boxes.
    - Include 3 to 5 Executive Key Takeaways at the start.
-6. FAQ SECTION & SCHEMA: Include 3 to 5 frequently asked questions with direct, clear answers.
-7. CALL TO ACTION: End with a strong conversion prompt ($primary_cta).
-8. INTERNAL LINKS: Naturally reference business services where relevant (Service links available: $service_links).
+6. FAQ SECTION & SCHEMA: Include 3 to 5 frequently asked questions with direct, authoritative answers.
+7. CLIENT CONVERSION CTA: End with a strong lead acquisition call to action ($primary_cta).
+8. INTERNAL LINKS: Naturally reference relevant client service offerings where applicable (Service links available: $service_links).
 9. OUTPUT FORMAT: YOU MUST OUTPUT ONLY VALID RAW JSON matching the requested JSON structure. DO NOT wrap in markdown code blocks like ```json ... ``` unless requested, just pure JSON object.";
     }
 
     public static function build_blog_prompt($topic, $focus_keyword = '', $target_word_count = '1500-2500 words', $custom_instructions = '') {
-        $business_name  = get_option('gbbg_business_name', 'Nova Care Australia');
-        $business_niche = get_option('gbbg_business_niche', 'Aged Care & NDIS Support Services');
-        $tone           = get_option('gbbg_default_tone', 'Professional, Empathetic, Authoritative, Caring');
+        $business_name  = get_option('gbbg_business_name', 'Apex SEO Agency');
+        $business_niche = get_option('gbbg_business_niche', 'SEO & Digital Marketing Agency');
+        $tone           = get_option('gbbg_default_tone', 'Authoritative, Persuasive, High-Converting, Professional');
 
         if (empty($focus_keyword)) {
             $focus_keyword = $topic;
         }
 
-        $prompt = "Create a full-length, 100/100 SEO optimized blog post for $business_name.
+        $prompt = "Create a full-length, 100/100 SEO optimized, client-generating blog post for $business_name ($business_niche).
 
 TOPIC: $topic
 FOCUS KEYWORD: $focus_keyword
@@ -61,7 +61,7 @@ Return ONLY a valid JSON object with the following exact keys:
   \"focus_keyword\": \"$focus_keyword\",
   \"secondary_keywords\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"],
   \"slug\": \"url-friendly-slug-with-focus-keyword\",
-  \"excerpt\": \"2-sentence engaging summary excerpt for blog archive.\",
+  \"excerpt\": \"2-sentence engaging summary excerpt focused on value and lead capture.\",
   \"key_takeaways\": [
     \"Key takeaway 1 summary point\",
     \"Key takeaway 2 summary point\",
@@ -83,19 +83,19 @@ Return ONLY a valid JSON object with the following exact keys:
 
     public static function build_topic_ideation_prompt($niche = '') {
         if (empty($niche)) {
-            $niche = get_option('gbbg_business_niche', 'Aged Care & NDIS Support Services');
+            $niche = get_option('gbbg_business_niche', 'SEO & Digital Marketing Agency');
         }
-        $business_name = get_option('gbbg_business_name', 'Nova Care Australia');
+        $business_name = get_option('gbbg_business_name', 'Apex SEO Agency');
 
-        return "Generate 6 high-converting, trending business blog topic ideas for $business_name in the $niche industry in Australia.
+        return "Generate 6 high-converting, high-intent client acquisition blog topic ideas for $business_name operating in the $niche industry. Focus on topic ideas that attract business decision-makers, generate qualified lead inquiries, and position the agency as the go-to expert.
 
 Return ONLY a valid JSON array of objects:
 [
   {
-    \"topic\": \"Complete Blog Topic Title\",
-    \"focus_keyword\": \"Target Primary Focus Keyword\",
-    \"target_audience\": \"Target Audience Profile\",
-    \"search_intent\": \"Informational / Commercial / Transactional\"
+    \"topic\": \"Complete High-Converting Blog Topic Title\",
+    \"focus_keyword\": \"Target Focus Keyword for Client Acquisition\",
+    \"target_audience\": \"Ideal Client Profile / Business Decision Maker\",
+    \"search_intent\": \"Commercial / High-Intent Transactional\"
   }
 ]";
     }

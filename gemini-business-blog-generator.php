@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Gemini Business SEO Blog Generator
- * Plugin URI: https://novacare.org.au
- * Description: AI-powered blog post generator using Google Gemini API (gemini-3.8-flash, gemini-2.5-flash, gemini-1.5-flash) tailored for business websites. Guarantees 100/100 SEO optimization with Rank Math/Yoast integration, Schema JSON-LD, TOC, FAQ blocks, and real-time SEO scoring.
+ * Plugin Name: WP Pro Blogs
+ * Plugin URI: https://wpproblogs.com
+ * Description: AI-powered client-generating SEO blog post platform for SEO agencies & growth marketers. Powered by Google Gemini API with 100/100 SEO optimization, Rank Math/Yoast integration, Schema JSON-LD, TOC, FAQ blocks, and client acquisition CTAs.
  * Version: 1.0.0
- * Author: Nova Care AI Team
- * Text Domain: gemini-business-blog
+ * Author: WP Pro Blogs Team
+ * Text Domain: wp-pro-blogs
  * License: GPLv2 or later
  */
 
@@ -39,10 +39,10 @@ register_activation_hook(__FILE__, function() {
         'gemini_max_tokens'    => '8192',
         'gemini_top_p'         => '0.95',
         'gemini_top_k'         => '40',
-        'business_name'        => 'Nova Care Australia',
-        'business_niche'       => 'Aged Care & NDIS Disability Support Services',
-        'business_location'    => 'Australia',
-        'default_tone'         => 'Professional, Empathetic, Authoritative, Caring',
+        'business_name'        => 'Apex SEO Agency',
+        'business_niche'       => 'SEO & Digital Marketing Agency',
+        'business_location'    => 'Global',
+        'default_tone'         => 'Authoritative, Persuasive, High-Converting, Professional',
         'target_word_count'    => '1500-2500 words',
         'enable_rank_math'     => '1',
         'enable_yoast'         => '1',
@@ -51,11 +51,11 @@ register_activation_hook(__FILE__, function() {
         'enable_toc'           => '1',
         'enable_key_takeaways' => '1',
         'business_website'     => get_bloginfo('url'),
-        'primary_cta'          => 'Contact Nova Care Australia today to discuss our personalized aged care and NDIS support packages.',
-        'service_links'        => "Home Care Packages | /services/home-care
-NDIS Support Services | /services/ndis
-Aged Care Accommodation | /services/aged-care
-Contact Us | /contact"
+        'primary_cta'          => 'Ready to get more clients and scale your organic rankings? Contact our SEO specialists today for a free growth strategy call.',
+        'service_links'        => "SEO Audit Services | /services/seo-audit
+Content Strategy & Creation | /services/content-marketing
+Link Building & Authority | /services/link-building
+Book Strategy Call | /contact"
     );
 
     foreach ($defaults as $key => $val) {
